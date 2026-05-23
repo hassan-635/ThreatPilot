@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pydantic
+pyjwt
+httpx
+python-dotenv
+slowapi
+redis
+geopy

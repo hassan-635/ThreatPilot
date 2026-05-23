@@ -1,0 +1,7 @@
+backend_handoff.md
+frontend_handoff.md
+
+ai_engine/.env
+ai_engine/venv
+
+__pycache__/
