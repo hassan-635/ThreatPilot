@@ -1,7 +1,22 @@
 backend_handoff.md
 frontend_handoff.md
 
+# Python / AI Engine
 ai_engine/.env
 ai_engine/venv
-
 __pycache__/
+*.pyc
+
+# .NET / ASP.NET Core Backend
+backend/bin/
+backend/obj/
+backend/appsettings.Development.json
+backend/appsettings.*.json
+
+# Visual Studio / IDEs
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
