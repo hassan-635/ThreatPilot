@@ -35,10 +35,21 @@ namespace ThreatPilot.Backend.Controllers
             // In a real scenario, use BCrypt for PasswordHash comparison.
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == request.Username && u.PasswordHash == request.Password);
 
-            // Adding a default backdoor for testing the desktop app easily later
-            if (user == null && (request.Username != "admin" || request.Password != "admin123"))
+            var defaultAdminUser = _configuration["DefaultAdmin:Username"];
+            var defaultAdminPass = _configuration["DefaultAdmin:Password"];
+
+            if (user == null)
             {
-                return Unauthorized("Invalid credentials.");
+                if (!string.IsNullOrEmpty(defaultAdminUser) && 
+                    request.Username == defaultAdminUser && 
+                    request.Password == defaultAdminPass)
+                {
+                    // Fallback to configured default admin
+                }
+                else
+                {
+                    return Unauthorized("Invalid credentials.");
+                }
             }
 
             var token = GenerateJwtToken(request.Username, user?.Role ?? "Admin");
