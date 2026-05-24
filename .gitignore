@@ -12,6 +12,7 @@ backend/bin/
 backend/obj/
 backend/appsettings.Development.json
 backend/appsettings.*.json
+backend/.env
 
 # Visual Studio / IDEs
 .vs/
