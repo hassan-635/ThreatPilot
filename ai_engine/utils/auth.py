@@ -14,7 +14,12 @@ ALGORITHM = "HS256"
 def verify_token(credentials: HTTPAuthorizationCredentials = Security(security)):
     token = credentials.credentials
     try:
-        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        payload = jwt.decode(
+            token, 
+            SECRET_KEY, 
+            algorithms=[ALGORITHM], 
+            options={"verify_aud": False, "verify_iss": False}
+        )
         return payload
     except jwt.ExpiredSignatureError:
         raise HTTPException(
