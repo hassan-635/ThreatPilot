@@ -14,6 +14,12 @@ builder.Configuration.AddEnvironmentVariables();
 // Add services to the container.
 builder.Services.AddControllers();
 
+// Register HttpClient for AI Engine
+builder.Services.AddHttpClient("AiEngine", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:8000/api/v1/");
+});
+
 // Configure PostgreSQL
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
