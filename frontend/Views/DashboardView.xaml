@@ -43,6 +43,7 @@
                     <Border Background="{DynamicResource PanelBackgroundBrush}" BorderBrush="{DynamicResource BorderLightBrush}" BorderThickness="1" CornerRadius="8" Padding="12,8" Margin="0,0,12,0" Effect="{StaticResource SubtleShadow}">
                         <TextBlock Text="{Binding CurrentDateTime}" FontSize="12" Foreground="{DynamicResource TextSecondaryBrush}" FontWeight="SemiBold"/>
                     </Border>
+                    <Button Content="Clear Alerts" Command="{Binding ClearAlertsCommand}" Style="{StaticResource PremiumButton}" Background="#DC2626" BorderBrush="#B91C1C" Padding="16,8" FontSize="12" Margin="0,0,12,0" ToolTip="Clear DB for testing" />
                     <Button Content="Generate Report" Command="{Binding GenerateReportCommand}" Style="{StaticResource PremiumButton}" Padding="16,8" FontSize="12" />
                 </StackPanel>
             </Grid>
@@ -202,7 +203,12 @@
                         <ItemsControl ItemsSource="{Binding CriticalAlerts}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Border Style="{StaticResource ClickableCard}" Background="#FFFBF5" Padding="16" Margin="0,0,0,12">
+                                    <Border Style="{StaticResource ClickableCard}" Background="#FFFBF5" Padding="16" Margin="0,0,0,12" Cursor="Hand">
+                                        <Border.InputBindings>
+                                            <MouseBinding MouseAction="LeftClick"
+                                                          Command="{Binding DataContext.ViewIncidentCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                          CommandParameter="{Binding}" />
+                                        </Border.InputBindings>
                                         <StackPanel>
                                             <Grid>
                                                 <TextBlock Text="{Binding RuleName}" FontSize="14" FontWeight="Bold" Foreground="{DynamicResource TextPrimaryBrush}" />
