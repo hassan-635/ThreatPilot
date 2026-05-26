@@ -52,7 +52,7 @@ class AIService:
                 {"role": "system", "content": INCIDENT_ANALYSIS_SYSTEM_PROMPT},
                 {"role": "user", "content": user_prompt}
             ],
-            "temperature": 0.1,
+            "temperature": 0.85,
             "response_format": {"type": "json_object"}  # Groq supports JSON mode!
         }
 
