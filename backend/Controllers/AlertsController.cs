@@ -8,7 +8,7 @@ namespace ThreatPilot.Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize] // Requires JWT token
+
     public class AlertsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -48,6 +48,16 @@ namespace ThreatPilot.Backend.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetAlert), new { id = alert.AlertId }, alert);
+        }
+
+        // DELETE: api/Alerts
+        [HttpDelete]
+        public async Task<IActionResult> ClearAllAlerts()
+        {
+            var alerts = await _context.Alerts.ToListAsync();
+            _context.Alerts.RemoveRange(alerts);
+            await _context.SaveChangesAsync();
+            return NoContent();
         }
     }
 }

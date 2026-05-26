@@ -32,9 +32,12 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Search -->
-                <TextBox Style="{StaticResource SearchBox}"
-                         Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
-                         Width="320" HorizontalAlignment="Left" />
+                <Grid Width="320" HorizontalAlignment="Left">
+                    <TextBlock Text="🔍" FontFamily="Segoe UI Emoji" FontSize="14" Foreground="{DynamicResource TextMutedBrush}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="12,0,0,0" Panel.ZIndex="1" />
+                    <TextBox Style="{StaticResource SearchBox}"
+                             Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                             Padding="36,10,16,10" Tag="Search alerts, IPs, rules..." />
+                </Grid>
 
                 <!-- Filter Chips -->
                 <StackPanel Grid.Column="1" Orientation="Horizontal">
@@ -54,7 +57,7 @@
                     <Border Style="{StaticResource PremiumCard}" Margin="0,0,0,12" Cursor="Hand">
                         <Border.InputBindings>
                             <MouseBinding MouseAction="LeftClick"
-                                          Command="{Binding DataContext.DataContext.ViewIncidentCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                          Command="{Binding DataContext.ViewIncidentCommand, RelativeSource={RelativeSource AncestorType=Window}}"
                                           CommandParameter="{Binding}" />
                         </Border.InputBindings>
                         <Grid>

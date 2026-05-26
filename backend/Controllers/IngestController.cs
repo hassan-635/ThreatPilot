@@ -60,8 +60,6 @@ namespace ThreatPilot.Backend.Controllers
 
             // 2. Forward to Python Detection Engine
             var client = _httpClientFactory.CreateClient("AiEngine");
-            var token = GenerateInternalJwtToken();
-            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
             var ingestResponse = await client.PostAsJsonAsync("ingest", batch);
             
@@ -116,20 +114,6 @@ namespace ThreatPilot.Backend.Controllers
             return Ok(new { Message = $"Successfully ingested {batch.Logs.Count} logs and processed {alerts?.Count ?? 0} alerts." });
         }
 
-        private string GenerateInternalJwtToken()
-        {
-            var jwtKey = _configuration["Jwt:Key"] ?? throw new InvalidOperationException("JWT Key missing");
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-            var token = new JwtSecurityToken(
-                issuer: _configuration["Jwt:Issuer"],
-                audience: _configuration["Jwt:Audience"],
-                claims: new[] { new Claim(ClaimTypes.Role, "System") },
-                expires: DateTime.Now.AddMinutes(5),
-                signingCredentials: credentials);
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
     }
 }

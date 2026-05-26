@@ -67,6 +67,8 @@
                     </StackPanel>
                 </StackPanel>
 
+
+
                 <!-- Divider -->
                 <Border Grid.Row="1" Height="1" Background="{DynamicResource BorderLightBrush}" Margin="20,0" />
 
@@ -88,28 +90,7 @@
                                  Command="{Binding NavigateToCommand}" CommandParameter="Settings" />
                 </StackPanel>
 
-                <!-- User Profile -->
-                <Border Grid.Row="3" Margin="12,0,12,16" Background="#F8F9FA" CornerRadius="12" Padding="14,12">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Border Width="38" Height="38" CornerRadius="19" Margin="0,0,12,0">
-                            <Border.Background>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                    <GradientStop Color="#C5A059" Offset="0" />
-                                    <GradientStop Color="#D4AF37" Offset="1" />
-                                </LinearGradientBrush>
-                            </Border.Background>
-                            <TextBlock Text="HA" Foreground="White" FontSize="13" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        </Border>
-                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                            <TextBlock Text="{Binding CurrentUser}" FontSize="13" FontWeight="SemiBold" Foreground="{DynamicResource TextPrimaryBrush}" />
-                            <TextBlock Text="{Binding CurrentRole}" FontSize="11" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,1,0,0" />
-                        </StackPanel>
-                    </Grid>
-                </Border>
+
             </Grid>
         </Border>
 
