@@ -8,7 +8,7 @@ from utils.auth import verify_token
 router = APIRouter()
 
 @router.post("/ingest", response_model=List[Alert], summary="Ingest logs for detection")
-async def ingest_logs(batch: LogBatch, payload: dict = Depends(verify_token)):
+async def ingest_logs(batch: LogBatch):
     """
     Receives a batch of normalized security logs from the ASP.NET backend.
     Evaluates them against deterministic detection rules.
@@ -21,7 +21,7 @@ async def ingest_logs(batch: LogBatch, payload: dict = Depends(verify_token)):
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/analyze-incident", response_model=AIReport, summary="Generate AI summary for an alert")
-async def analyze_incident(request: IncidentAnalysisRequest, payload: dict = Depends(verify_token)):
+async def analyze_incident(request: IncidentAnalysisRequest):
     """
     Receives an Alert object from the ASP.NET backend.
     Uses the Grok API to generate an executive summary, evaluate severity, and recommend remediation.
