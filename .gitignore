@@ -22,3 +22,8 @@ backend/appsettings.json
 *.suo
 *.userosscache
 *.sln.docstates
+
+# .NET Frontend
+
+frontend/bin/
+frontend/obj/
