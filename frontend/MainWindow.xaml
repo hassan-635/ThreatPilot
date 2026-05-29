@@ -4,8 +4,8 @@
         xmlns:vm="clr-namespace:ThreatPilot.Frontend.ViewModels"
         xmlns:views="clr-namespace:ThreatPilot.Frontend.Views"
         Title="ThreatPilot — SOC Dashboard"
-        Width="1400" Height="880"
-        MinWidth="1100" MinHeight="700"
+        Width="1200" Height="760"
+        MinWidth="960" MinHeight="640"
         WindowStartupLocation="CenterScreen"
         WindowStyle="SingleBorderWindow"
         Background="{DynamicResource AppBackgroundBrush}"
@@ -33,7 +33,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="260" />
+            <ColumnDefinition Width="220" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
