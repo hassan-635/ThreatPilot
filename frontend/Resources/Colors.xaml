@@ -1,0 +1,46 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Light Premium Luxury Color Palette -->
+    <Color x:Key="AppBackground">#F5F5F7</Color>
+    <Color x:Key="PanelBackground">#FFFFFF</Color>
+    
+    <!-- BLACK text as requested -->
+    <Color x:Key="TextPrimary">#000000</Color>
+    <Color x:Key="TextSecondary">#555555</Color>
+    <Color x:Key="TextMuted">#888888</Color>
+    
+    <!-- Subtle Gold/Champagne accent for luxury feel -->
+    <Color x:Key="AccentGold">#B8860B</Color>
+    <Color x:Key="AccentGoldHover">#D4AF37</Color>
+    <Color x:Key="AccentGoldLight">#FFF8E7</Color>
+    
+    <!-- Soft Borders -->
+    <Color x:Key="BorderLight">#E0E0E0</Color>
+    <Color x:Key="BorderMedium">#D0D0D0</Color>
+
+    <!-- Hover State -->
+    <Color x:Key="HoverLight">#F0F0F0</Color>
+    <Color x:Key="SidebarHover">#F5F0E6</Color>
+
+    <!-- Solid Color Brushes -->
+    <SolidColorBrush x:Key="AppBackgroundBrush" Color="{StaticResource AppBackground}" />
+    <SolidColorBrush x:Key="PanelBackgroundBrush" Color="{StaticResource PanelBackground}" />
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource TextPrimary}" />
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextSecondary}" />
+    <SolidColorBrush x:Key="TextMutedBrush" Color="{StaticResource TextMuted}" />
+    <SolidColorBrush x:Key="AccentGoldBrush" Color="{StaticResource AccentGold}" />
+    <SolidColorBrush x:Key="AccentGoldHoverBrush" Color="{StaticResource AccentGoldHover}" />
+    <SolidColorBrush x:Key="AccentGoldLightBrush" Color="{StaticResource AccentGoldLight}" />
+    <SolidColorBrush x:Key="BorderLightBrush" Color="{StaticResource BorderLight}" />
+    <SolidColorBrush x:Key="BorderMediumBrush" Color="{StaticResource BorderMedium}" />
+    <SolidColorBrush x:Key="HoverLightBrush" Color="{StaticResource HoverLight}" />
+    <SolidColorBrush x:Key="SidebarHoverBrush" Color="{StaticResource SidebarHover}" />
+
+    <!-- Shadows - more prominent -->
+    <DropShadowEffect x:Key="PremiumShadow" BlurRadius="24" ShadowDepth="6" Direction="270" Color="#1A000000" Opacity="0.5" />
+    <DropShadowEffect x:Key="SubtleShadow" BlurRadius="14" ShadowDepth="3" Direction="270" Color="#12000000" Opacity="0.35" />
+    <DropShadowEffect x:Key="HoverShadow" BlurRadius="32" ShadowDepth="8" Direction="270" Color="#22000000" Opacity="0.6" />
+    <DropShadowEffect x:Key="DeepShadow" BlurRadius="40" ShadowDepth="10" Direction="270" Color="#28000000" Opacity="0.7" />
+
+</ResourceDictionary>
