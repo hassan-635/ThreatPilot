@@ -1,0 +1,83 @@
+<UserControl x:Class="ThreatPilot.Frontend.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             FontFamily="{StaticResource PrimaryFont}">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="0,0,16,0">
+        <StackPanel Margin="36,28,36,36">
+
+            <!-- Page Header -->
+            <Grid Margin="0,0,0,28">
+                <StackPanel>
+                    <TextBlock Text="System Settings" FontSize="28" FontWeight="Bold" Foreground="{DynamicResource TextPrimaryBrush}" />
+                    <TextBlock Text="Configure ThreatPilot preferences and connections" FontSize="14" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,4,0,0" />
+                </StackPanel>
+            </Grid>
+
+            <!-- Preferences Panel -->
+            <Border Style="{StaticResource PremiumCard}" Margin="0,0,0,24">
+                <StackPanel>
+                    <TextBlock Text="User Preferences" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource TextPrimaryBrush}" Margin="0,0,0,20" />
+                    
+                    <Grid Margin="0,0,0,16">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Text="Dark Mode" FontSize="14" FontWeight="SemiBold" Foreground="{DynamicResource TextPrimaryBrush}" />
+                            <TextBlock Text="Switch to a dark luxury theme for low-light environments" FontSize="13" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,4,0,0" />
+                        </StackPanel>
+                        <CheckBox Grid.Column="1" IsChecked="{Binding IsDarkMode}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    </Grid>
+                    
+                    <Border Height="1" Background="{DynamicResource BorderLightBrush}" Margin="0,8,0,16" />
+
+                    <Grid Margin="0,0,0,16">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Text="Desktop Notifications" FontSize="14" FontWeight="SemiBold" Foreground="{DynamicResource TextPrimaryBrush}" />
+                            <TextBlock Text="Show toast notifications for CRITICAL and HIGH alerts" FontSize="13" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,4,0,0" />
+                        </StackPanel>
+                        <CheckBox Grid.Column="1" IsChecked="{Binding EnableDesktopNotifications}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    </Grid>
+                    
+                    <Border Height="1" Background="{DynamicResource BorderLightBrush}" Margin="0,8,0,16" />
+
+                    <Grid Margin="0,0,0,16">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Text="Report Save Location" FontSize="14" FontWeight="SemiBold" Foreground="{DynamicResource TextPrimaryBrush}" />
+                            <TextBlock Text="Folder where generated reports will be saved" FontSize="13" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,4,0,0" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0">
+                            <TextBox Style="{StaticResource SearchBox}" Text="{Binding ReportSaveLocation}" Width="300" Margin="0,0,8,0" IsReadOnly="True" />
+                            <Button Content="Browse..." Command="{Binding BrowseFolderCommand}" Style="{StaticResource PremiumButton}" Padding="12,6" FontSize="12" />
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!-- Connection Panel -->
+            <Border Style="{StaticResource PremiumCard}">
+                <StackPanel>
+                    <TextBlock Text="Backend Integration" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource TextPrimaryBrush}" Margin="0,0,0,20" />
+                    
+                    <StackPanel Margin="0,0,0,16">
+                        <TextBlock Text="AI Engine Endpoint" FontSize="14" FontWeight="SemiBold" Foreground="{DynamicResource TextPrimaryBrush}" Margin="0,0,0,8" />
+                        <TextBox Style="{StaticResource SearchBox}" Text="{Binding AiEngineEndpoint}" Width="500" HorizontalAlignment="Left" />
+                    </StackPanel>
+
+                    <Button Content="Save Configuration" Style="{StaticResource PremiumButton}" Width="200" HorizontalAlignment="Left" Margin="0,16,0,0" />
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
